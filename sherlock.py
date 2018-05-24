@@ -16,8 +16,8 @@ def isValid(s):
     for ch in s:
         dict[ch] += 1
 
-    print()
-
+    print()    
+    
     print ('1 ' + str(dict))
     count = {}
     for ch in dict:
@@ -31,20 +31,19 @@ def isValid(s):
                 print 'adding ' + ch
             print count
 
-    print str(count)
 
     if len(count) > 2 or len(count) == 0:
         result = 'NO'
     elif len(count) == 1:
         result = 'YES'
     else:
-        items = count.items()
+        items = sorted(count.items())
         print items
         first = items[0][1]
         f_key = items[0][0]
         second = items[1][1]
         s_key = items[1][0]
-        if ((first == 1) and abs(int(f_key) - int(s_key))==1) or (abs(int(f_key) - int(s_key))==1 and second == 1 ) : #or (first == second + 1) or (second == first + 1):
+        if (abs(int(f_key) - int(s_key))==1 and (first == 1 or second == 1)) or (first == 1 and f_key == 1) or (second == 1 and s_key == 1):
             result = 'YES'
         else:
             result = 'NO'
